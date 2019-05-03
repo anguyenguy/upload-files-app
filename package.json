@@ -1,17 +1,19 @@
 {
-  "name": "material-kit-react",
-  "version": "1.4.0",
-  "description": "Material Kit React. Coded by Creative Tim",
+  "name": "as",
+  "version": "2.0.0",
+  "description": "The source code of front end",
   "private": true,
   "main": "dist/index.js",
   "dependencies": {
     "@material-ui/core": "3.9.2",
     "@material-ui/icons": "3.0.2",
+    "bootstrap": "^4.3.1",
     "classnames": "2.2.6",
     "history": "4.7.2",
     "moment": "2.24.0",
     "node-sass": "4.11.0",
     "nouislider": "13.1.0",
+    "perfect-scrollbar": "^1.4.0",
     "prop-types": "15.7.1",
     "react": "16.8.1",
     "react-datetime": "2.16.3",
@@ -19,7 +21,8 @@
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.5",
     "react-slick": "0.23.2",
-    "react-swipeable-views": "0.13.1"
+    "react-swipeable-views": "0.13.1",
+    "reactstrap": "^6.4.0"
   },
   "devDependencies": {
     "@babel/cli": "7.2.3",

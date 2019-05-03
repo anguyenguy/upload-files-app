@@ -64,33 +64,30 @@ class LoginPage extends React.Component {
               <GridItem xs={12} sm={12} md={4}>
                 <Card className={classes[this.state.cardAnimaton]}>
                   <form className={classes.form}>
-                    <CardHeader color="info" className={classes.cardHeader}>
-                      <h4>Login</h4>
+                    <CardHeader color="success" className={classes.cardHeader}>
+                      <h4>Register</h4>
                       <div className={classes.socialLine}>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-facebook"} />
-                        </Button>
-                        <Button
-                          justIcon
-                          href="#pablo"
-                          target="_blank"
-                          color="transparent"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <i className={"fab fa-google-plus-g"} />
-                        </Button>
                       </div>
                     </CardHeader>
-                    <p className={classes.divider}>Or</p>
+                    <p className={classes.divider}></p>
                     <CardBody>
                       <CustomInput
-                        labelText="Email..."
+                        labelText="Your name"
+                        id="name"
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        inputProps={{
+                          type: "name",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <i className='fas fa-user'></i>
+                            </InputAdornment>
+                          )
+                        }}
+                      />
+                     <CustomInput
+                        labelText="Your email"
                         id="email"
                         formControlProps={{
                           fullWidth: true
@@ -121,9 +118,27 @@ class LoginPage extends React.Component {
                           )
                         }}
                       />
+                      <CustomInput
+                        labelText="Confirm assword"
+                        id="pass"
+                        formControlProps={{
+                          fullWidth: true
+                        }}
+                        inputProps={{
+                          type: "password",
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <Icon className={classes.inputIconsColor}>
+                                lock_outline
+                              </Icon>
+                            </InputAdornment>
+                          )
+                        }}
+                      />
                     </CardBody>
+                    
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="info" size="lg">
+                      <Button simple color="success" size="lg">
                         Get started
                       </Button>
                     </CardFooter>

@@ -27,6 +27,7 @@ import SectionCompletedExamples from "./Sections/SectionCompletedExamples.jsx";
 import SectionLogin from "./Sections/SectionLogin.jsx";
 import SectionExamples from "./Sections/SectionExamples.jsx";
 import SectionDownload from "./Sections/SectionDownload.jsx";
+import WorkSection from "./Sections/WorkSection.jsx";
 
 import componentsStyle from "assets/jss/material-kit-react/views/components.jsx";
 
@@ -51,7 +52,7 @@ class Components extends React.Component {
             <GridContainer>
               <GridItem>
                 <div className={classes.brand}>
-                  <h1 className={classes.title}>Upload File Manager</h1>
+                  <h1 className={classes.title}>Upload Files</h1>
                   <h3 className={classes.subtitle}>
                     Easy manage your files online and free.
                   </h3>
@@ -64,12 +65,13 @@ class Components extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <GridItem md={12} className={classes.textCenter}>
             <Link to={"/login-page"} className={classes.link}>
-              <Button color="primary" size="lg" simple>
+              <Button color="success" size="lg" simple>
                 Login to start
               </Button>
             </Link>
           </GridItem>
-          <SectionExamples />
+          <SectionCarousel />
+          <WorkSection />
         </div>
         <Footer />
       </div>
