@@ -5,7 +5,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
-import People from "@material-ui/icons/People";
+// react components for routing our app without refresh
+import { Link } from "react-router-dom";
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -31,6 +32,7 @@ class LoginPage extends React.Component {
       cardAnimaton: "cardHidden"
     };
   }
+
   componentDidMount() {
     // we add a hidden class to the card and after 700 ms we delete it and the transition appears
     setTimeout(
@@ -40,6 +42,9 @@ class LoginPage extends React.Component {
       700
     );
   }
+
+
+
   render() {
     const { classes, ...rest } = this.props;
     return (
@@ -123,9 +128,11 @@ class LoginPage extends React.Component {
                       />
                     </CardBody>
                     <CardFooter className={classes.cardFooter}>
-                      <Button simple color="info" size="lg">
-                        Get started
-                      </Button>
+                     <Link to={"/dashboard-page"} className={classes.link}>
+                        <Button color="info" size="lg">
+                          Get started
+                        </Button>
+                     </Link>
                     </CardFooter>
                   </form>
                 </Card>
