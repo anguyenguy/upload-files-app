@@ -8,6 +8,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/now-ui-dashboard.css";
 import "assets/css/demo.css";
 
+// Implement redux
+import { Provider } from 'react-redux';
+import { createStore, combineReducers } from 'redux';
+import filesReducer from './store/reducers/files';
+
 // pages for this product
 import Components from "views/Components/Components.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
@@ -16,14 +21,23 @@ import Upload from "views/DashboardPage/Upload/UploadPage.jsx";
 
 var hist = createBrowserHistory();
 
+const rootReducer = combineReducers({
+  fil: filesReducer
+});
+
+const store = createStore(rootReducer);
+
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      <Route path="/login-page" component={LoginPage} />
-      <Route path="/register-page" component={RegisterPage} />
-      <Route path="/dashboard-page" component={Upload} />
-      <Route path="/" component={Components} />
-    </Switch>
-  </Router>,
+  <Provider store={store}>
+    <Router history={hist}>
+      <Switch>
+        <Route path="/login-page" component={LoginPage} />
+        <Route path="/register-page" component={RegisterPage} />
+        <Route path="/dashboard-page" component={Upload} />
+        <Route path="/" component={Components} />
+      </Switch>
+    </Router>
+  </Provider>
+,
   document.getElementById("root")
 );

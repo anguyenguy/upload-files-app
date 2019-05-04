@@ -9,6 +9,9 @@ import {
   Col
 } from "reactstrap";
 
+// Combine redux
+import { connect } from 'react-redux';
+import * as actionTypes from '../../../store/action';
 
 // import { PanelHeader, Stats, CardCategory, Tasks } from "../../components";
 import PanelHeader from "../../../components/PanelHeader/PanelHeader";
@@ -19,24 +22,43 @@ import CardCategory from "../../../components/CardElements/CardCategory";
 // import { tasks } from "variables/general.jsx";
 
 class DashBoardPage extends React.Component {
+
+
+  onDragOver = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  onDragEnter = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  onFileDrop = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    this.props.onUploadFile(e.dataTransfer.files[0]);
+  }
+
+
   render() {
     return (
-      <div>
+      <div >
         
         <PanelHeader size="sm" />
-        <div className="content">
+        <div className="content" >
           <Row>
               <Card className="card-tasks">
                 <CardHeader>
                   <CardCategory>Upload files</CardCategory>
-                  <CardTitle tag="h4">Brown your files</CardTitle>
+                  {/* <CardTitle tag="h4">Brown your files</CardTitle> */}
                 </CardHeader>
-                <CardBody>
-                <div class="custom-file">
-                  <input id="logo" type="file" class="custom-file-input"/>
-                  <label for="logo" class="custom-file-label text-truncate">Choose file...</label>
-                </div>
-                </CardBody>
+                    <div className="files-upload-user"
+                      onDragEnter={this.onDragEnter}
+                      onDragOver={this.onDragOver}
+                      onDrop={this.onFileDrop}>
+                      Drag and drop file here
+                    </div>
                 <CardFooter>
                   <Stats>
                     {[{ i: "now-ui-icons loader_refresh spin", t: "Updated" }]}
@@ -51,7 +73,22 @@ class DashBoardPage extends React.Component {
                   <CardTitle tag="h4">Data</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  {/* <Tasks tasks={tasks} /> */}
+                  { this.props.fileData.map( result => {
+                    return(
+                      <div className="d-flex justify-content-around">
+                        <div className="data-prepare ml-3 text-success">{result.file.name}</div>
+                        <div className="">{result.file.size} bytes</div>
+                      </div>
+                    )
+                  })}
+                  {
+                    (this.props.fileData.length>0)? 
+                    <div className="d-flex justify-content-center">
+                      <button type="button" class="btn btn-success">Upload now</button>
+                    </div>:
+                    
+                    null
+                  }
                 </CardBody>
                 <CardFooter>
                   <hr />
@@ -59,7 +96,7 @@ class DashBoardPage extends React.Component {
                     {[
                       {
                         i: "now-ui-icons loader_refresh spin",
-                        t: "Updated 30 seconds ago"
+                        t: "Updated immediately"
                       }
                     ]}
                   </Stats>
@@ -72,4 +109,16 @@ class DashBoardPage extends React.Component {
   }
 }
 
-export default DashBoardPage;
+const mapStateToProps = state => {
+  return {
+    fileData : state.fil.files
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onUploadFile: (file) => dispatch({type: actionTypes.UPLOADFILE, file:file})
+  }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(DashBoardPage);
