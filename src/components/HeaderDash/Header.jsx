@@ -18,7 +18,7 @@ import {
   Input
 } from "reactstrap";
 
-import dashboardRoutes from "../../views/DashboardPage/Upload/Route";
+import dashboardRoutes from "../../views/DashboardPage/Route";
 
 class Header extends React.Component {
   constructor(props) {

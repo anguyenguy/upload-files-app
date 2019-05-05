@@ -120,7 +120,7 @@ class LoginPage extends React.Component {
                           endAdornment: (
                             <InputAdornment position="end">
                               <Icon className={classes.inputIconsColor}>
-                                lock_outline
+                                
                               </Icon>
                             </InputAdornment>
                           )

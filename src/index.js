@@ -17,7 +17,7 @@ import filesReducer from './store/reducers/files';
 import Components from "views/Components/Components.jsx";
 import LoginPage from "views/LoginPage/LoginPage.jsx";
 import RegisterPage from "views/RegisterPage/RegisterPage.jsx";
-import Upload from "views/DashboardPage/Upload/UploadPage.jsx";
+import DashboardPage from "views/DashboardPage/DashboardPage.jsx";
 
 var hist = createBrowserHistory();
 
@@ -33,7 +33,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/login-page" component={LoginPage} />
         <Route path="/register-page" component={RegisterPage} />
-        <Route path="/dashboard-page" component={Upload} />
+        <Route path="/dashboard-page" component={DashboardPage} />
         <Route path="/" component={Components} />
       </Switch>
     </Router>

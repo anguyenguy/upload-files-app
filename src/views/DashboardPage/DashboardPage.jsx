@@ -3,9 +3,14 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import { Header, Footer, Sidebar } from "components";
+// import { Header, Footer, Sidebar } from "components";
 
-import dashboardRoutes from "../../routes/dashboard";
+import Header from '../../components/HeaderDash/Header';
+import Footer from '../../components/Footer/Footer';
+import Sidebar from '../../components/Sidebar/Sidebar';
+
+import dashboardRoutes from "./Route";
+
 
 var ps;
 
@@ -40,7 +45,7 @@ class Dashboard extends React.Component {
                 return prop.views.map((prop2, key2) => {
                   return (
                     <Route
-                      path={prop2.path}
+                      path={prop2.path }
                       component={prop2.component}
                       key={key2}
                     />
