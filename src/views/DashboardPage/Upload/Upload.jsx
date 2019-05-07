@@ -5,8 +5,7 @@ import {
   CardBody,
   CardFooter,
   CardTitle,
-  Row,
-  Col
+  Row
 } from "reactstrap";
 
 // Combine redux

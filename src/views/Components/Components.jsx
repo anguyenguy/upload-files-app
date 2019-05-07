@@ -15,9 +15,11 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 // sections for this page
+
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import SectionCarousel from "./Sections/SectionCarousel.jsx";
 import WorkSection from "./Sections/WorkSection.jsx";
+// Style
 
 import componentsStyle from "assets/jss/material-kit-react/views/components.jsx";
 

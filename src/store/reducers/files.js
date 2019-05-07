@@ -11,17 +11,11 @@ const reducer = ( state = initialState, action ) => {
                 ...state,
                 files: state.files.concat({id: new Date(), file: action.file})
             }
-        // case actionTypes.DELETE_RESULT:
-        //     // const id = 2;
-        //     // const newArray = [...state.results];
-        //     // newArray.splice(id, 1)
-        //     const updatedArray = state.results.filter(result => result.id !== action.resultElId);
-        //     return {
-        //         ...state,
-        //         results: updatedArray
-        //     }
+        default :
+            return {
+                state
+            }
     }
-    return state;
 };
 
 export default reducer;

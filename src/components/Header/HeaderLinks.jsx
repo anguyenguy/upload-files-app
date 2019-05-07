@@ -40,7 +40,7 @@ function HeaderLinks({ ...props }) {
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
-            href="https://github.com/anguyenguy"
+            href="https://github.com/anguyenguy/upload-files-app"
             target="_blank"
             color="transparent"
             className={classes.navLink}
